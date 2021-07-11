@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-capitalize">view sub admins</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngFor="let s of sub_admins">
+    <ion-item
+      [routerLink]="['/sub_admin', s.id]"
+      routerLinkActive="router-link-active"
+    >
+      <div style="display: flex; flex-direction: column; width: 100%">
+        <ion-text style="font-size: 20px; margin: 5px 0">
+          <b>{{ s.name | titlecase }}</b>
+        </ion-text>
+        <div
+          style="
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 5px;
+          "
+        >
+          <ion-text><b>Id: </b>{{ s.id }}</ion-text>
+          <ion-text><b>Created At: </b>{{ s.createdAt | date }}</ion-text>
+        </div>
+      </div>
+    </ion-item>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-capitalize">view managers</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="type === 'admin'">
+    <ion-list *ngFor="let m of managers">
+      <ion-item
+        [routerLink]="['/manager', m.id]"
+        routerLinkActive="router-link-active"
+      >
+        <div style="display: flex; flex-direction: column; width: 100%">
+          <ion-text style="font-size: 20px; margin: 5px 0">
+            <b>{{ m.name | titlecase }}</b>
+          </ion-text>
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              margin-bottom: 5px;
+            "
+          >
+            <ion-text><b>Id: </b>{{ m.id }}</ion-text>
+            <ion-text><b>Created At: </b>{{ m.createdAt | date }}</ion-text>
+          </div>
+        </div>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <div *ngIf="type !== 'admin'">
+    <ion-list *ngFor="let m of managers1">
+      <ion-item
+        [routerLink]="['/manager', m.id]"
+        routerLinkActive="router-link-active"
+      >
+        <div style="display: flex; flex-direction: column; width: 100%">
+          <ion-text style="font-size: 20px; margin: 5px 0">
+            <b>{{ m.name | titlecase }}</b>
+          </ion-text>
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              margin-bottom: 5px;
+            "
+          >
+            <ion-text><b>Id: </b>{{ m.id }}</ion-text>
+            <ion-text><b>Created At: </b>{{ m.createdAt | date }}</ion-text>
+          </div>
+        </div>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

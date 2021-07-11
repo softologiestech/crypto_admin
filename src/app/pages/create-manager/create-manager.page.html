@@ -1,0 +1,114 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-capitalize">create manager</ion-title>
+    <ion-button
+      slot="end"
+      fill="clear"
+      (click)="create()"
+      *ngIf="name && username && email && password && address && phone"
+    >
+      <ion-icon name="checkmark-outline"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div style="padding: 5px">
+    <ion-item>
+      <ion-label position="floating">
+        Name
+        <ion-text color="danger">*</ion-text>
+      </ion-label>
+      <ion-input [(ngModel)]="name" type="text" required="true"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">
+        Username
+        <ion-text color="danger">*</ion-text>
+      </ion-label>
+      <ion-input [(ngModel)]="username" type="text" required="true"></ion-input>
+    </ion-item>
+    <!-- <ion-item>
+      <ion-label position="floating">
+        Unique Id
+        <ion-text color="danger">*</ion-text>
+      </ion-label>
+      <ion-input [(ngModel)]="id" type="number" required="true"></ion-input>
+    </ion-item> -->
+    <ion-item>
+      <ion-label position="floating">
+        Address
+        <ion-text color="danger">*</ion-text>
+      </ion-label>
+      <ion-input [(ngModel)]="address" type="text" required="true"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">
+        Email Id
+        <ion-text color="danger">*</ion-text>
+      </ion-label>
+      <ion-input [(ngModel)]="email" type="email" required="true"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">
+        Password
+        <ion-text color="danger">*</ion-text>
+      </ion-label>
+      <ion-input
+        [(ngModel)]="password"
+        type="password"
+        required="true"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">
+        Mobile Number
+        <ion-text color="danger">*</ion-text>
+      </ion-label>
+      <ion-input
+        [(ngModel)]="phone"
+        type="text"
+        inputmode="tel"
+        required="true"
+        maxlength="10"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"> Alternate Number </ion-label>
+      <ion-input
+        [(ngModel)]="alt"
+        type="text"
+        inputmode="tel"
+        maxlength="10"
+        max="10"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"> No. of Sub Managers </ion-label>
+      <ion-input [(ngModel)]="num_sub_manager" type="number"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"> No. of Users </ion-label>
+      <ion-input [(ngModel)]="num_users" type="number"></ion-input>
+    </ion-item>
+    <ion-button
+      expand="block"
+      required="true"
+      (click)="presentAadharActionSheet()"
+    >
+      Upload Aadhar
+      <ion-text style="padding: 0 5px">*</ion-text>
+    </ion-button>
+    <ion-button
+      expand="block"
+      required="true"
+      (click)="presentPanActionSheet()"
+    >
+      Upload Pan
+      <ion-text style="padding: 0 5px">*</ion-text>
+    </ion-button>
+  </div>
+</ion-content>

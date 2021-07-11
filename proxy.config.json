@@ -1,0 +1,11 @@
+{
+    "/api/*": {
+        "target": "https://skymcx.in/API_JSON_Demo4.php",
+        "secure": false,
+        "logLevel": "debug",
+        "changeOrigin": true,
+        "pathRewrite": {
+            "^/api": ""
+          }
+    }
+}

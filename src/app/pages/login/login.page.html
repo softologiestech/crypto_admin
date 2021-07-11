@@ -1,0 +1,34 @@
+<ion-content>
+  <div class="container">
+    <ion-item>
+      <b style="font-size: 30px; margin: 10px auto">Crypto Admin</b>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">
+        Username <ion-text color="danger">*</ion-text>
+      </ion-label>
+      <ion-input [(ngModel)]="username" type="text" required="true"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">
+        Password <ion-text color="danger">*</ion-text></ion-label
+      >
+      <ion-input
+        [(ngModel)]="password"
+        type="password"
+        minLength="6"
+        required="true"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Select Type</ion-label>
+      <ion-select interface="popover" [(ngModel)]="type">
+        <ion-select-option value="admin"> Admin </ion-select-option>
+        <ion-select-option value="sub_admin"> Sub Admin</ion-select-option>
+        <ion-select-option value="manager"> Manager </ion-select-option>
+        <ion-select-option value="sub_anager"> Sub Manager</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-button expand="block" (click)="login()">Login</ion-button>
+  </div>
+</ion-content>

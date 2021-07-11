@@ -1,0 +1,8 @@
+{
+  "name": "msx",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular"
+}

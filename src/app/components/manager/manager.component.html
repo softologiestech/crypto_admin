@@ -1,0 +1,5 @@
+<ion-list *ngFor="let o of routes">
+  <ion-item [routerLink]="'/' + o.route" routerLinkActive="router-link-active">
+    <b style="font-size: 20px">{{ o.name }}</b>
+  </ion-item>
+</ion-list>

@@ -1,0 +1,54 @@
+<ion-app>
+  <ion-menu side="start" menuId="mainDrawer" contentId="main">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>
+          <b style="font-size: 24px">Dashboard</b>
+        </ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list lines="none" class="ion-no-padding">
+        <ion-menu-toggle auto-hide="true">
+          <ion-item
+            [routerLink]="['/view_sub_admins']"
+            routerLinkActive="router-link-active"
+            *ngIf="type === 'admin'"
+          >
+            <b>View Sub Admins</b>
+          </ion-item>
+          <ion-item
+            [routerLink]="['/view_managers']"
+            routerLinkActive="router-link-active"
+            *ngIf="type === 'admin' || type === 'sub_admin'"
+          >
+            <b>View Managers</b>
+          </ion-item>
+          <ion-item
+            [routerLink]="['/view_sub_managers']"
+            routerLinkActive="router-link-active"
+            *ngIf="
+              type === 'admin' || type === 'sub_admin' || type === 'manager'
+            "
+          >
+            <b>View Sub Managers</b>
+          </ion-item>
+          <ion-item
+            [routerLink]="['/view_users']"
+            routerLinkActive="router-link-active"
+          >
+            <b>View Users</b>
+          </ion-item>
+        </ion-menu-toggle>
+      </ion-list>
+    </ion-content>
+    <ion-footer>
+      <ion-toolbar>
+        <ion-item (click)="logout()">
+          <b>Logout</b>
+        </ion-item>
+      </ion-toolbar>
+    </ion-footer>
+  </ion-menu>
+  <ion-router-outlet id="main"></ion-router-outlet>
+</ion-app>

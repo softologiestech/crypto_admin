@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title><b>{{ data.id }}</b></ion-title>
+    <ion-buttons slot="end" *ngIf="type === 'admin' || type === 'manager'">
+      <ion-button fill="clear" (click)="presentPopover()" color="primary">
+        <ion-icon name="add-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list lines="none">
+    <ion-item>
+      <p><b>Name: </b> {{ data.name | titlecase }}</p>
+    </ion-item>
+    <ion-item>
+      <p><b>Username: </b> {{ data.username }}</p>
+    </ion-item>
+    <ion-item>
+      <p><b>UID: </b> {{ data.uid }}</p>
+    </ion-item>
+    <ion-item>
+      <p><b>Type: </b> {{ data.type }}</p>
+    </ion-item>
+    <div
+      style="display: flex; align-items: center; justify-content: space-between"
+    >
+      <ion-item>
+        <p><b>Manager Id: </b> {{ data.id }}</p>
+      </ion-item>
+      <ion-item>
+        <p><b>Created At: </b> {{ data.createdAt | date }}</p>
+      </ion-item>
+    </div>
+    <ion-item>
+      <p><b>Email Id: </b> {{ data.email }}</p>
+    </ion-item>
+    <ion-item>
+      <p><b>Password: </b> {{ data.password }}</p>
+    </ion-item>
+    <ion-item>
+      <p><b>Phone Number: </b> {{ data.phone }}</p>
+    </ion-item>
+    <ion-item *ngIf="alt !== ''">
+      <p><b>Alternate Number: </b> {{ data.alt }}</p>
+    </ion-item>
+    <ion-item>
+      <p><b>No. of Users: </b> {{ data.num_users }}</p>
+    </ion-item>
+  </ion-list>
+</ion-content>

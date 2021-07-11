@@ -1,0 +1,31 @@
+<div style="padding: 20px">
+  <p class="ion-text-center" style="font-size: 24px">
+    <b>Transactions</b>
+  </p>
+  <ion-item>
+    <ion-label position="floating">
+      Amount
+      <ion-text color="danger">*</ion-text>
+    </ion-label>
+    <ion-input
+      style="padding: 5px 0"
+      [(ngModel)]="amount"
+      type="number"
+      inputmode="tel"
+      required="true"
+    ></ion-input>
+  </ion-item>
+  <div style="display: flex; align-items: center; margin: 10px 0">
+    <ion-button color="primary" expand="block" style="flex: 1" (click)="add()">
+      Add
+    </ion-button>
+    <ion-button
+      color="danger"
+      expand="block"
+      style="flex: 1"
+      (click)="withdraw()"
+    >
+      Withdraw
+    </ion-button>
+  </div>
+</div>
