@@ -88,11 +88,15 @@
     </ion-item>
     <ion-item>
       <ion-label position="floating"> No. of Sub Managers </ion-label>
-      <ion-input [(ngModel)]="num_sub_manager" type="number"></ion-input>
+      <ion-select interface="popover" [(ngModel)]="num_sub_manager">
+        <ion-select-option *ngFor="let n of users"> {{ n }} </ion-select-option>
+      </ion-select>
     </ion-item>
     <ion-item>
       <ion-label position="floating"> No. of Users </ion-label>
-      <ion-input [(ngModel)]="num_users" type="number"></ion-input>
+      <ion-select interface="popover" [(ngModel)]="num_users">
+        <ion-select-option *ngFor="let n of users"> {{ n }} </ion-select-option>
+      </ion-select>
     </ion-item>
     <ion-button
       expand="block"
