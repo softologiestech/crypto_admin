@@ -9,7 +9,7 @@ import { PopoverController } from '@ionic/angular';
 })
 export class AddComponent implements OnInit {
   @Input() data: any;
-  amount: number;
+  amount: number = 0;
 
   constructor(
     private db: AngularFirestore,
