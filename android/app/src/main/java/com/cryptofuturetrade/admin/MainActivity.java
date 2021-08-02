@@ -1,4 +1,4 @@
-package io.ionic.starter;
+package com.cryptofuturetrade.admin;
 
 import android.os.Bundle;
 

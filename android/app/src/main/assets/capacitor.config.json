@@ -1,6 +1,6 @@
 {
-  "appId": "io.ionic.starter",
-  "appName": "msx",
+  "appId": "com.cryptofuturetrade.admin",
+  "appName": "CFT Admin",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "www",

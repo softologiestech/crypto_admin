@@ -8,7 +8,7 @@
       slot="end"
       fill="clear"
       (click)="create()"
-      *ngIf="name && username && email && password && address && phone"
+      *ngIf="name && username && email && password && address && phone && num_manager"
     >
       <ion-icon name="checkmark-outline"></ion-icon>
     </ion-button>
@@ -88,7 +88,11 @@
     </ion-item>
     <ion-item>
       <ion-label position="floating"> No. of Managers </ion-label>
-      <ion-input [(ngModel)]="num_manager" type="number"></ion-input>
+      <ion-select interface="popover" [(ngModel)]="num_manager">
+        <ion-select-option *ngFor="let n of managers">
+          {{ n }}
+        </ion-select-option>
+      </ion-select>
     </ion-item>
     <ion-button
       expand="block"

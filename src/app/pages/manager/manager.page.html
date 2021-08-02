@@ -5,7 +5,7 @@
     </ion-buttons>
     <ion-title><b>{{ data.id }}</b></ion-title>
     <ion-buttons slot="end" *ngIf="type === 'admin'">
-      <ion-button fill="clear" (click)="presentPopover()" color="primary">
+      <ion-button fill="clear" (click)="presentPopover($event)" color="primary">
         <ion-icon name="add-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -45,7 +45,7 @@
     <ion-item>
       <p><b>Phone Number: </b> {{ data.phone }}</p>
     </ion-item>
-    <ion-item *ngIf="alt !== ''">
+    <ion-item *ngIf="data.alt !== ''">
       <p><b>Alternate Number: </b> {{ data.alt }}</p>
     </ion-item>
     <ion-item>

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
-import { ActionSheetController } from '@ionic/angular';
+import { ActionSheetController, LoadingController } from '@ionic/angular';
 import * as firebase from 'firebase';
 import { UploadService } from 'src/app/services/upload.service';
 
@@ -31,12 +31,15 @@ export class CreateUserPage implements OnInit {
     private db: AngularFirestore,
     private router: Router,
     private uploadService: UploadService,
-    private actionSheetController: ActionSheetController
+    private actionSheetController: ActionSheetController,
+    private loadingController: LoadingController
   ) {}
 
   ngOnInit() {}
 
   create() {
+    this.presentLoading();
+
     if (this.aadhar)
       this.uploadService.uploadAadhar(this.aadhar).then((data) => {
         // console.log(data)
@@ -66,6 +69,8 @@ export class CreateUserPage implements OnInit {
             alt: this.alt,
             password: this.password,
             id: this.id,
+            commission: 700,
+            net_commission: 0,
             type: 'user',
             uid: data.user.uid,
             createdAt: Date.now(),
@@ -98,6 +103,9 @@ export class CreateUserPage implements OnInit {
 
             this.router.navigate(['/home']);
           });
+      })
+      .catch((err) => {
+        this.loadingController.dismiss();
       });
   }
 
@@ -163,5 +171,13 @@ export class CreateUserPage implements OnInit {
     });
 
     await actionSheet.present();
+  }
+
+  async presentLoading() {
+    const loading = await this.loadingController.create({
+      message: 'Creating User ...',
+      spinner: 'crescent',
+    });
+    await loading.present();
   }
 }

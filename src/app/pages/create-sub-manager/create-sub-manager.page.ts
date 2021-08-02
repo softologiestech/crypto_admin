@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
-import { ActionSheetController } from '@ionic/angular';
+import { ActionSheetController, LoadingController } from '@ionic/angular';
 import * as firebase from 'firebase';
 import { UploadService } from 'src/app/services/upload.service';
 
@@ -27,17 +27,22 @@ export class CreateSubManagerPage implements OnInit {
   pan: string = '';
   panUrl: string = '';
 
+  users: Array<any> = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
   constructor(
     private auth: AngularFireAuth,
     private db: AngularFirestore,
     private router: Router,
     private uploadService: UploadService,
-    private actionSheetController: ActionSheetController
+    private actionSheetController: ActionSheetController,
+    private loadingController: LoadingController
   ) {}
 
   ngOnInit() {}
 
   create() {
+    this.presentLoading();
+
     if (this.aadhar)
       this.uploadService.uploadAadhar(this.aadhar).then((data) => {
         // console.log(data)
@@ -85,6 +90,7 @@ export class CreateSubManagerPage implements OnInit {
                   name: this.name,
                   username: this.username,
                   createdAt: Date.now(),
+                  num_users: this.num_users,
                 });
             else
               this.db
@@ -96,10 +102,14 @@ export class CreateSubManagerPage implements OnInit {
                   name: this.name,
                   username: this.username,
                   createdAt: Date.now(),
+                  num_users: this.num_users,
                 });
 
             this.router.navigate(['/home']);
           });
+      })
+      .catch((err) => {
+        this.loadingController.dismiss();
       });
   }
 
@@ -165,5 +175,13 @@ export class CreateSubManagerPage implements OnInit {
     });
 
     await actionSheet.present();
+  }
+
+  async presentLoading() {
+    const loading = await this.loadingController.create({
+      message: 'Create Sub Manager ...',
+      spinner: 'crescent',
+    });
+    await loading.present();
   }
 }

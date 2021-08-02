@@ -36,12 +36,19 @@ export class AddComponent implements OnInit {
         if (this.data.amountInWallet === 0 || !this.data.amountInWallet)
           this.db.doc(`user/${this.data.id}`).update({
             amountInWallet: this.amount,
+            equity: this.amount,
+            free_margin: this.amount,
+            margin: 0,
           });
         else {
           var prevAmount = this.data.amountInWallet;
+          var prevEquity = this.data.equity;
+          var prevFreeMargin = this.data.free_margin;
 
           this.db.doc(`user/${this.data.id}`).update({
             amountInWallet: prevAmount + this.amount,
+            equity: prevEquity + this.amount,
+            free_margin: prevFreeMargin + this.amount,
           });
         }
 

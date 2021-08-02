@@ -1,5 +1,5 @@
 {
-  "name": "msx",
+  "name": "cft-admin",
   "integrations": {
     "capacitor": {},
     "cordova": {}

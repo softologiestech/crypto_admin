@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">msx</string>
-    <string name="title_activity_main">msx</string>
-    <string name="package_name">io.ionic.starter</string>
-    <string name="custom_url_scheme">io.ionic.starter</string>
+    <string name="app_name">CFT Admin</string>
+    <string name="title_activity_main">CFT Admin</string>
+    <string name="package_name">com.cryptofuturetrade.admin</string>
+    <string name="custom_url_scheme">com.cryptofuturetrade.admin</string>
 </resources>
