@@ -17,11 +17,11 @@ export class AddComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    console.log(this.data);
+    // console.log(this.data);
   }
 
   add() {
-    console.log(this.amount);
+    // console.log(this.amount);
 
     this.db
       .doc(`${this.data.type}/${this.data.id}`)
@@ -41,9 +41,9 @@ export class AddComponent implements OnInit {
             margin: 0,
           });
         else {
-          var prevAmount = this.data.amountInWallet;
-          var prevEquity = this.data.equity;
-          var prevFreeMargin = this.data.free_margin;
+          var prevAmount: number = this.data.amountInWallet;
+          var prevEquity: number = this.data.equity;
+          var prevFreeMargin: number = this.data.free_margin;
 
           this.db.doc(`user/${this.data.id}`).update({
             amountInWallet: prevAmount + this.amount,
@@ -58,7 +58,7 @@ export class AddComponent implements OnInit {
   }
 
   withdraw() {
-    console.log(this.amount);
+    // console.log(this.amount);
 
     this.db
       .doc(`${this.data.type}/${this.data.id}`)
@@ -70,12 +70,16 @@ export class AddComponent implements OnInit {
         withdrawedByUid: localStorage.getItem('uid'),
       })
       .then(() => {
-        var prevAmount = this.data.amountInWallet;
+        var prevAmount: number = this.data.amountInWallet;
+        var prevEquity: number = this.data.equity;
+        var prevFreeMargin: number = this.data.free_margin;
 
         if (this.data.amountInWallet === 0) return;
         else if (this.amount < prevAmount) {
           this.db.doc(`user/${this.data.id}`).update({
             amountInWallet: prevAmount - this.amount,
+            equity: prevEquity - this.amount,
+            free_margin: prevFreeMargin - this.amount,
           });
         }
 
