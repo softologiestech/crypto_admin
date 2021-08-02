@@ -110,6 +110,7 @@ export class CreateManagerPage implements OnInit {
                   num_users: this.num_users,
                 });
 
+            this.loadingController.dismiss();
             this.router.navigate(['/home']);
           });
       })

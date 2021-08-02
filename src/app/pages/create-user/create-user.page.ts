@@ -101,6 +101,7 @@ export class CreateUserPage implements OnInit {
                   createdAt: Date.now(),
                 });
 
+            this.loadingController.dismiss();
             this.router.navigate(['/home']);
           });
       })

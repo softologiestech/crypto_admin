@@ -94,6 +94,7 @@ export class CreateSubAdminPage implements OnInit {
                 num_manager: this.num_manager,
               });
 
+            this.loadingController.dismiss();
             this.router.navigate(['/home']);
           });
       })
